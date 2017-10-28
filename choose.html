@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>相豫网-个人中心</title>
+		<meta charset="UTF-8">
+		<!-- 优先使用 IE 最新版本和 Chrome -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		<!-- 页面描述 -->
+		<meta name="description" content=""/>
+		<!-- 页面关键词 -->
+		<meta name="keywords" content=""/>
+				
+		<link rel="stylesheet" href="css/reset.css"/>
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/mobiscroll.custom-3.0.0-beta6.min.css" />
+
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>		
+		<script type="text/javascript" src="js/jquery.touchSlider.js"></script>			
+		<script type="text/javascript" src="js/change_headPic.js"></script>
+		<script type="text/javascript" src="js/mobiscroll.custom-3.0.0-beta6.min.js"></script>
+		<script type="text/javascript" src="js/mycity2.js"></script>
+		
+		<script type="text/javascript" src="js/showcity.js"></script>
+		<script type="text/javascript" src="js/my.js"></script>
+		<script type="text/javascript" src="js/mymobi.js"></script>
+
+		
+		
+		 
+	</head>
+	<body class="bgf0f0f0">
+		<!--头部-->
+			<header>
+				<div class="head clearfix">
+					<div class="logo fl">
+						<img src="images/logo-pc.png"/>
+					</div>
+					<div class="head-r fr">						
+						<a href="#"><i class="iconfont icon-xiaoxizhongxin"></i>消息提醒</a>
+						<a href="#"><i class="iconfont icon-gerenzhongxin"></i>个人中心</a>
+
+						<a href="#"><i class="iconfont icon-yanzhengma"></i>安全中心</a>
+						<a href="#"><i class="iconfont icon-kefu"></i>在线客服</a>
+						<span><i class="iconfont icon-dianhua"></i>红娘热线：0371-55586806</span>
+					</div>
+				</div>
+			</header>
+			
+			<!--head end-->
+			
+			<!--nav===begin-->
+			<nav>
+				<ul>
+					<li class="active"><a href="#">首页</a></li>
+					<li><a href="#">爱情圈</a></li>
+					<li><a href="#">线下猎婚</a></li>
+					<li><a href="#">搜索</a></li>
+					<li><a href="#">精彩活动</a></li>
+					<li><a href="#">两性频道</a></li>
+					<li><a href="#">成功案例</a></li>
+					<li><a href="#">通知公告</a></li>
+					<li><a href="#">关于相豫</a></li>
+				</ul>
+			</nav>
+			<!--nav===end-->
+	
+			<!--container box 1200--> 
+			<div class="con-1200 clearfix">
+				
+				<div class="aside-l fr bgfff">
+					<form action="">
+						<div class="per-top clearfix">					
+							
+							<div class="per-top-right mauto">
+								
+								<div class="per-selectbox clearfix">
+									<span>年龄范围：</span>
+									<div class="fl">
+										<input id="doubleSelectAge" placeholder="请选择年龄范围"  name="l_age" value="{$user.l_age}"/>
+									</div>						
+								</div>
+																					
+								<div class="per-selectbox clearfix">
+									<span>身高范围：</span>
+									<div class="fl">
+										<input id="doubleSelectHeight" placeholder="请选择身高范围" name="l_high" value="{$user.l_high}"/>
+									</div>						
+								</div>
+								<div class="per-selectbox clearfix">
+									<span>收入范围：</span>
+									<div class="fl">
+										<select class="mobiselect" name="shouru" >
+											<option value="">请选择收入</option>
+											<option value="1" <if condition="$user['shouru']==1">selected</if>>2000以下</option>
+											<option value="2" <if condition="$user['shouru']==2">selected</if>>2000-3000</option>
+											<option value="3" <if condition="$user['shouru']==3">selected</if>>3000-5000</option>
+											<option value="4" <if condition="$user['shouru']==4">selected</if>>5000-8000</option>
+											<option value="5" <if condition="$user['shouru']==5">selected</if>>8000-10000</option>
+											<option value="6" <if condition="$user['shouru']==6">selected</if>>10000-15000</option>
+											<option value="7" <if condition="$user['shouru']==7">selected</if>>15000-20000</option>
+											<option value="8" <if condition="$user['shouru']==8">selected</if>>20000-30000</option>
+											<option value="9" <if condition="$user['shouru']==9">selected</if>>30000-50000</option>
+											<option value="10" <if condition="$user['shouru']==10">selected</if>>50000-100000</option>
+											<option value="11" <if condition="$user['shouru']==11">selected</if>>100000以上</option>
+		
+										</select>
+									</div>					
+								</div>
+								
+								<div class="per-selectbox clearfix">
+									<span>学历：</span>
+									<div class="fl">
+										<select  class="mobiselect"  name="xueli" >
+											<option value="">请选择学历</option>
+											<option value="1" <if condition="$user.xueli eq 1">selected</if>>高中及以下</option>
+											<option value="2" <if condition="$user.xueli eq 2">selected</if>>专科</option>
+											<option value="3" <if condition="$user.xueli eq 3">selected</if>>本科</option>
+											<option value="4" <if condition="$user.xueli eq 4">selected</if>>硕士</option>
+											<option value="5" <if condition="$user.xueli eq 5">selected</if>>博士及以上</option>
+										</select>
+									</div>						
+								</div>
+								
+								<div class="per-selectbox clearfix">
+									<span>体重：</span>
+									<div class="fl">
+										<select  class="mobiselect"  name="weight" >
+											<option value="">请选择</option>
+											<volist name="weight" id="v" key="o">
+												<option value="{$v}" <if condition="$user.weight eq $v">selected</if>>{$v}KG</option>
+											</volist>
+											<option value="101" <if condition="$user.weight eq '101'">selected</if>>100 KG 以上</option>
+										</select>
+									</div>						
+								</div>
+								
+								<div class="per-selectbox clearfix">
+									<span>体型：</span>
+									<div class="fl">
+										<select class="mobiselect" name="body">
+											<option value="">请选择</option>
+											<option value="1" <if condition="$user.body eq 1">selected</if>>保密</option>
+											<option value="2" <if condition="$user.body eq 2">selected</if>>一般</option>
+											<option value="3" <if condition="$user.body eq 3">selected</if>>瘦长</option>
+											<option value="4" <if condition="$user.body eq 4">selected</if>>苗条</option>
+											<option value="5" <if condition="$user.body eq 5">selected</if>>高大美丽</option>
+											<option value="6" <if condition="$user.body eq 6">selected</if>>丰满</option>
+											<option value="7" <if condition="$user.body eq 7">selected</if>>富线条美</option>
+										</select>
+									</div>						
+								</div>
+								
+								<div class="per-selectbox clearfix">
+									<span>民族：</span>
+									<div class="fl">
+										<select class="mobiselect" name="minzu">
+											<option value="" >请选择</option>
+											<option value="1"<if condition="$user.minzu eq 1">selected</if>>汉族</option>
+											<option value="2" <if condition="$user.minzu eq 2">selected</if>>蒙古族</option>
+											<option value="3" <if condition="$user.minzu eq 3">selected</if>>回族</option>
+											<option value="4" <if condition="$user.minzu eq 4">selected</if>>藏族</option>
+											<option value="5" <if condition="$user.minzu eq 5">selected</if>>维吾尔族</option>
+											<option value="6" <if condition="$user.minzu eq 6">selected</if>>苗族</option>
+											<option value="7" <if condition="$user.minzu eq 7">selected</if>>彝族</option>
+											<option value="8" <if condition="$user.minzu eq 8">selected</if>>壮族</option>
+											<option value="9" <if condition="$user.minzu eq 9">selected</if>>布依族</option>
+											<option value="10" <if condition="$user.minzu eq 10">selected</if>>朝鲜族</option>
+											<option value="11" <if condition="$user.minzu eq 11">selected</if>>满族</option>
+											<option value="12" <if condition="$user.minzu eq 12">selected</if>>侗族</option>
+											<option value="13" <if condition="$user.minzu eq 13">selected</if>>瑶族</option>
+											<option value="14" <if condition="$user.minzu eq 14">selected</if>>白族</option>
+											<option value="15" <if condition="$user.minzu eq 15">selected</if>>土家族</option>
+											<option value="16" <if condition="$user.minzu eq 16">selected</if>>哈尼族</option>
+											<option value="17" <if condition="$user.minzu eq 17">selected</if>>哈萨克族</option>
+											<option value="18" <if condition="$user.minzu eq 18">selected</if>>傣族</option>
+											<option value="19" <if condition="$user.minzu eq 19">selected</if>>黎族</option>
+											<option value="20" <if condition="$user.minzu eq 20">selected</if>>傈僳族</option>
+											<option value="21" <if condition="$user.minzu eq 21">selected</if>>佤族</option>
+											<option value="22" <if condition="$user.minzu eq 22">selected</if>>畲族</option>
+											<option value="23" <if condition="$user.minzu eq 23">selected</if>>高山族</option>
+											<option value="24" <if condition="$user.minzu eq 24">selected</if>>拉祜族</option>
+											<option value="25" <if condition="$user.minzu eq 25">selected</if>>水族</option>
+											<option value="26" <if condition="$user.minzu eq 26">selected</if>>东乡族</option>
+											<option value="27" <if condition="$user.minzu eq 27">selected</if>>纳西族</option>
+											<option value="28" <if condition="$user.minzu eq 28">selected</if>>景颇族</option>
+											<option value="29" <if condition="$user.minzu eq 29">selected</if>>柯尔克孜族</option>
+											<option value="30" <if condition="$user.minzu eq 30">selected</if>>土族</option>
+											<option value="31" <if condition="$user.minzu eq 31">selected</if>>达斡尔族</option>
+											<option value="32" <if condition="$user.minzu eq 32">selected</if>>仫佬族</option>
+											<option value="33" <if condition="$user.minzu eq 33">selected</if>>羌族</option>
+											<option value="34" <if condition="$user.minzu eq 34">selected</if>>布朗族</option>
+											<option value="35" <if condition="$user.minzu eq 35">selected</if>>撒拉族</option>
+											<option value="36" <if condition="$user.minzu eq 36">selected</if>>毛南族</option>
+											<option value="37" <if condition="$user.minzu eq 37">selected</if>>仡佬族</option>
+											<option value="38" <if condition="$user.minzu eq 38">selected</if>>锡伯族</option>
+											<option value="39" <if condition="$user.minzu eq 39">selected</if>>阿昌族</option>
+											<option value="40" <if condition="$user.minzu eq 40">selected</if>>普米族</option>
+											<option value="41" <if condition="$user.minzu eq 41">selected</if>>塔吉克族</option>
+											<option value="42" <if condition="$user.minzu eq 42">selected</if>>怒族</option>
+											<option value="43"<if condition="$user.minzu eq 43">selected</if>>乌孜别克族</option>
+											<option value="44" <if condition="$user.minzu eq 44">selected</if>>俄罗斯族</option>
+											<option value="45" <if condition="$user.minzu eq 45">selected</if>>鄂温克族</option>
+											<option value="46" <if condition="$user.minzu eq 46">selected</if>>德昂族</option>
+											<option value="47" <if condition="$user.minzu eq 47">selected</if>>保安族</option>
+											<option value="48" <if condition="$user.minzu eq 48">selected</if>>裕固族</option>
+											<option value="49" <if condition="$user.minzu eq 49">selected</if>>京族</option>
+											<option value="50" <if condition="$user.minzu eq 50">selected</if>>塔塔尔族</option>
+											<option value="51" <if condition="$user.minzu eq 51">selected</if>>独龙族</option>
+											<option value="52" <if condition="$user.minzu eq 52">selected</if>>鄂伦春族</option>
+											<option value="53" <if condition="$user.minzu eq 53">selected</if>>赫哲族</option>
+											<option value="54" <if condition="$user.minzu eq 54">selected</if>>门巴族</option>
+											<option value="55" <if condition="$user.minzu eq 55">selected</if>>珞巴族</option>
+											<option value="56" <if condition="$user.minzu eq 56">selected</if>>基诺族</option>
+											<option value="57" <if condition="$user.minzu eq 57">selected</if>>其他</option>
+										</select>
+									</div>						
+								</div>
+								
+								<div class="per-selectbox clearfix">
+									<span>职业：</span>
+									<div class="fl">
+										<select class="mobiselect" name="profession" id="mode">
+
+											<optgroup label="销售">
+						                      <option value="销售总监"<?php $user['profession']=='销售总监'?'checked':''?>>销售总监</option>
+						                      <option value="销售主管"<?php $user['profession']=='销售主管<'?'checked':''?>>销售主管</option>
+						                      <option value="销售专员"<?php $user['profession']=='销售专员'?'checked':''?>>销售专员</option>
+						                      <option value="渠道/分销管理"<?php $user['profession']=='渠道/分销管理'?'checked':''?>>渠道/分销管理</option>
+						                      <option value="渠道/分销专员"<?php $user['profession']=='渠道/分销专员'?'checked':''?>>渠道/分销专员</option>
+						                    </optgroup>
+						                    <optgroup label="客户服务">
+						                      <option value="客服经理"<?php $user['profession']=='客服经理'?'checked':''?>> 客服经理</option>
+						                      <option value="客服主管"<?php $user['profession']=='客服主管'?'checked':''?>>客服主管</option>
+						                      <option value="客服专员"<?php $user['profession']=='客服专员'?'checked':''?>>客服专员</option>
+						                      <option value="客服协调"<?php $user['profession']=='客服协调'?'checked':''?>>客服协调</option>
+						                      <option value="客服技术支持"<?php $user['profession']=='客服技术支持'?'checked':''?>>客服技术支持</option>
+						                      <option value="客服服务"<?php $user['profession']=='客服服务'?'checked':''?>>客服服务</option>
+						                    </optgroup>
+						                   <optgroup label="计算机/互联网">
+						                      <option value="IT技术总监"<?php $user['profession']=='IT技术总监'?'checked':''?>> IT技术总监</option>
+						                      <option value="IT技术经理"<?php $user['profession']=='IT技术经理'?'checked':''?>>IT技术经理</option>
+						                      <option value="IT工程师"<?php $user['profession']=='IT工程师'?'checked':''?>>IT工程师</option>
+						                      <option value="系统管理员"<?php $user['profession']=='系统管理员'?'checked':''?>>系统管理员</option>
+						                      <option value="测试专员"<?php $user['profession']=='测试专员<'?'checked':''?>>测试专员</option>
+						                      <option value="运营管理"<?php $user['profession']=='运营管理'?'checked':''?>>运营管理</option>
+						                	<option value="网页设计"<?php $user['profession']=='网页设计'?'checked':''?>>网页设计</option>
+						                      <option value="网站编辑"<?php $user['profession']=='网站编辑'?'checked':''?>>网站编辑</option>
+						                      <option value="网站产品经理"<?php $user['profession']=='网站产品经理'?'checked':''?>>网站产品经理</option>
+						                      <option value="IOS工程师"<?php $user['profession']=='IOS工程师'?'checked':''?>>IOS工程师</option>
+						                      <option value="Android工程师"<?php $user['profession']=='Android工程师'?'checked':''?>>Android工程师</option>
+						                      <option value="php工程师"<?php $user['profession']=='php工程师'?'checked':''?>>php工程师</option>
+												<option value="计算机/互联网"<?php $user['profession']=='计算机/互联网'?'checked':''?>>计算机/互联网</option>
+						                    </optgroup>
+											<optgroup label="通信/电子">
+						                      <option value="通信技术"<?php $user['profession']=='通信技术'?'checked':''?>> 通信技术</option>
+						                      <option value="电子技术"<?php $user['profession']=='电子技术'?'checked':''?>>电子技术</option>
+						                      <option value="通信/电子"<?php $user['profession']=='通信/电子'?'checked':''?>>通信/电子</option>                   
+						                    </optgroup>
+											<optgroup label="生产/制造">
+						                      <option value="工厂经理"<?php $user['profession']=='工厂经理'?'checked':''?>> 工厂经理</option>
+						                      <option value="工程师"<?php $user['profession']=='工程师'?'checked':''?>>工程师</option>
+						                      <option value="项目主管"<?php $user['profession']=='项目主管'?'checked':''?>>项目主管</option>
+						                      <option value="营员经理"<?php $user['profession']=='营员经理'?'checked':''?>>营员经理</option>
+						                      <option value="营员主管"<?php $user['profession']=='营员主管'?'checked':''?>>营员主管</option>
+						                      <option value="车间主任"<?php $user['profession']=='车间主任'?'checked':''?>>车间主任</option>
+						                	<option value="物料管理"<?php $user['profession']=='物料管理'?'checked':''?>>物料管理</option>
+						                      <option value="生产领班"<?php $user['profession']=='生产领班'?'checked':''?>>生产领班</option>
+						                      <option value="操作工人"<?php $user['profession']=='操作工人'?'checked':''?>>操作工人</option>
+						                      <option value="安全管理"<?php $user['profession']=='安全管理'?'checked':''?>>安全管理</option>
+						                      <option value="生产/制造"<?php $user['profession']=='生产/制造'?'checked':''?>>生产/制造</option>
+						                    </optgroup>
+						                    <optgroup label="物流/仓储">
+						                      <option value="物流经理"<?php $user['profession']=='物流经理<'?'checked':''?>>物流经理</option>
+						                      <option value="物流主管"<?php $user['profession']=='物流主管'?'checked':''?>>物流主管</option>
+						                      <option value="物流专员"<?php $user['profession']=='物流专员'?'checked':''?>>物流专员</option>
+						                      <option value="仓库经理"<?php $user['profession']=='仓库经理'?'checked':''?>>仓库经理</option>
+						                      <option value="仓库主管"<?php $user['profession']=='仓库主管'?'checked':''?>>仓库主管</option>
+						                      <option value="仓库管理员"<?php $user['profession']=='仓库管理员'?'checked':''?>>仓库管理员</option>
+						                	<option value="货运代理"<?php $user['profession']=='货运代理'?'checked':''?>>货运代理</option>
+						                      <option value="集装箱业务"<?php $user['profession']=='集装箱业务'?'checked':''?>>集装箱业务</option>
+						                      <option value="海关事务管理"<?php $user['profession']=='海关事务管理'?'checked':''?>>海关事务管理</option>
+						                      <option value="保单员"<?php $user['profession']=='保单员'?'checked':''?>>保单员/option>
+						                      <option value="快递员"<?php $user['profession']=='快递员'?'checked':''?>>快递员</option>
+												<option value="快递物流"<?php $user['profession']=='快递物流'?'checked':''?>>快递物流</option>
+						                    </optgroup>
+												<optgroup label="商贸/采购">
+						                      <option value="商务经理"<?php $user['profession']=='商务经理'?'checked':''?>>商务经理</option>
+						                      <option value="商务专员"<?php $user['profession']=='商务专员'?'checked':''?>>商务专员</option>
+						                      <option value="采购经理"<?php $user['profession']=='采购经理'?'checked':''?>>采购经理</option>
+						                      <option value="采购专员"<?php $user['profession']=='采购专员'?'checked':''?>>采购专员</option>
+						                      <option value="外贸经理"<?php $user['profession']=='外贸经理'?'checked':''?>>外贸经理</option>
+						                      <option value="外贸专员"<?php $user['profession']=='外贸专员'?'checked':''?>>外贸专员</option>
+						                	<option value="业务跟单"<?php $user['profession']=='业务跟单'?'checked':''?>>业务跟单</option>
+						                      <option value="报关员"<?php $user['profession']=='报关员'?'checked':''?>>报关员</option>
+						                      <option value="商贸./采购"<?php $user['profession']=='商贸./采购'?'checked':''?>>商贸./采购</option>                   
+						                    </optgroup>
+						                    <optgroup label="人事/行政">
+						                      <option value="人事总监"<?php $user['profession']=='人事总监'?'checked':''?>>人事总监</option>
+						                      <option value="人事经理"<?php $user['profession']=='人事经理'?'checked':''?>>人事经理</option>
+						                      <option value="人事主管"<?php $user['profession']=='人事主管'?'checked':''?>>人事主管</option>
+						                      <option value="人事专员"<?php $user['profession']=='人事专员'?'checked':''?>>人事专员</option>
+						                      <option value="招聘经理"<?php $user['profession']=='招聘经理'?'checked':''?>>招聘经理</option>
+						                      <option value="招聘专员"<?php $user['profession']=='招聘专员'?'checked':''?>>招聘专员</option>
+						                	<option value="培训经理"<?php $user['profession']=='培训经理'?'checked':''?>>培训经理</option>
+						                      <option value="培训专员"<?php $user['profession']=='培训专员'?'checked':''?>>培训专员</option>
+						                      <option value="秘书"<?php $user['profession']=='秘书'?'checked':''?>>秘书</option>
+												<option value="文员"<?php $user['profession']=='文员'?'checked':''?>>文员</option>
+												<option value="后勤"<?php $user['profession']=='后勤'?'checked':''?>>后勤</option>
+												<option value="人事/行政"<?php $user['profession']=='人事/行政'?'checked':''?>>人事/行政</option>                    
+						                    </optgroup>
+											<optgroup label="高级管理">
+						                      <option value="总经理"<?php $user['profession']=='总经理<'?'checked':''?>>总经理</option>
+						                      <option value="副总经理"<?php $user['profession']=='副总经理'?'checked':''?>>副总经理</option>
+						                      <option value="合伙人"<?php $user['profession']=='合伙人'?'checked':''?>>合伙人</option>
+						                      <option value="总监"<?php $user['profession']=='总监'?'checked':''?>>总监</option>
+						                      <option value="经理"<?php $user['profession']=='经理'?'checked':''?>>经理</option>
+						                      <option value="总裁助理"<?php $user['profession']=='总裁助理'?'checked':''?>>总裁助理</option>
+						                	<option value="高级管理"<?php $user['profession']=='高级管理'?'checked':''?>>高级管理</option>
+						                    </optgroup>
+											<optgroup label="广告/市场">
+						                      <option value="广告客户经理"<?php $user['profession']=='广告客户经理'?'checked':''?>>广告客户经理</option>
+						                      <option value="广告客户专员"<?php $user['profession']=='广告客户专员'?'checked':''?>>广告客户专员</option>
+						                      <option value="广告设计经理"<?php $user['profession']=='广告设计经理'?'checked':''?>>广告设计经理</option>
+						                      <option value="广告设计专员"<?php $user['profession']=='广告设计专员'?'checked':''?>>广告设计专员</option>
+						                      <option value="广告策划"<?php $user['profession']=='广告策划'?'checked':''?>>广告策划</option>
+						                      <option value="市场营销经理"<?php $user['profession']=='市场营销经理'?'checked':''?>>市场营销经理</option>
+						                	<option value="市场营销专员"<?php $user['profession']=='市场营销专员'?'checked':''?>>市场营销专员</option>
+						                      <option value="市场策划"<?php $user['profession']=='市场策划'?'checked':''?>>市场策划</option>
+						                      <option value="市场调研与分析"<?php $user['profession']=='市场调研与分析'?'checked':''?>>市场调研与分析</option>
+											<option value="市场拓展"<?php $user['profession']=='市场拓展'?'checked':''?>>市场拓展</option>
+											<option value="公关经理"<?php $user['profession']=='公关经理'?'checked':''?>>公关经理</option>
+											<option value="公关专员"<?php $user['profession']=='公关专员'?'checked':''?>>公关专员</option>
+											<option value="市场营销专员"<?php $user['profession']=='市场营销专员'?'checked':''?>>市场营销专员</option>
+						                      <option value="媒介经理"<?php $user['profession']=='媒介经理'?'checked':''?>>媒介经理</option>
+						                      <option value="媒介专员"<?php $user['profession']=='媒介专员'?'checked':''?>>媒介专员</option>
+											<option value="品牌经理"<?php $user['profession']=='品牌经理'?'checked':''?>>品牌经理</option>
+											<option value="品牌专员"<?php $user['profession']=='品牌专员'?'checked':''?>>品牌专员</option>
+											<option value="广告/市场"<?php $user['profession']=='广告/市场'?'checked':''?>>广告/市场</option>
+						                    </optgroup>
+											<optgroup label="传媒/艺术">
+						                      <option value="主编"<?php $user['profession']=='主编'?'checked':''?>>主编</option>
+						                      <option value="编辑"<?php $user['profession']=='编辑'?'checked':''?>>编辑</option>
+						                      <option value="作家"<?php $user['profession']=='作家'?'checked':''?>>作家</option>
+						                      <option value="撰稿人"<?php $user['profession']=='撰稿人'?'checked':''?>>撰稿人</option>
+						                      <option value="出版发行"<?php $user['profession']=='出版发行'?'checked':''?>>出版发行</option>
+						                      <option value="导演"<?php $user['profession']=='导演'?'checked':''?>>导演</option>
+						                	<option value="记者"<?php $user['profession']=='记者'?'checked':''?>>记者</option>
+						                      <option value="主持人"<?php $user['profession']=='主持人'?'checked':''?>>主持人</option>
+						                      <option value="演员"<?php $user['profession']=='演员'?'checked':''?>>演员</option>
+												<option value="模特"<?php $user['profession']=='模特'?'checked':''?>>模特</option>
+												<option value="经纪人"<?php $user['profession']=='经纪人'?'checked':''?>>经纪人</option>
+												<option value="摄影师"<?php $user['profession']=='摄影师'?'checked':''?>>摄影师</option>
+												<option value="影视后期制作"<?php $user['profession']=='影视后期制作'?'checked':''?>>影视后期制作</option>
+						                      <option value="画家"<?php $user['profession']=='画家'?'checked':''?>>画家</option>
+						                      <option value="音乐家"<?php $user['profession']=='音乐家'?'checked':''?>>音乐家</option>
+												<option value="舞蹈"<?php $user['profession']=='舞蹈'?'checked':''?>>舞蹈</option>
+												<option value="传媒/艺术"<?php $user['profession']=='传媒/艺术'?'checked':''?>>传媒/艺术</option>                 
+						                    </optgroup>
+						 						<optgroup label="生物/制药">
+						                      <option value="生物工程"<?php $user['profession']=='生物工程<'?'checked':''?>>生物工程</option>
+						                      <option value="药品生产"<?php $user['profession']=='药品生产'?'checked':''?>>药品生产</option>
+						                      <option value="临床研究"<?php $user['profession']=='临床研究'?'checked':''?>>临床研究</option>
+						                      <option value="医疗器械"<?php $user['profession']=='医疗器械'?'checked':''?>>医疗器械</option>
+						                      <option value="医药代表"<?php $user['profession']=='医药代表'?'checked':''?>>医药代表</option>
+						                      <option value="化工工程师"<?php $user['profession']=='化工工程师'?'checked':''?>>化工工程师</option>
+						                	<option value="生物/制药"<?php $user['profession']=='生物/制药'?'checked':''?>>生物/制药</option>                                    
+						                    </optgroup>
+						                     <optgroup label="医疗/护理">
+						                      <option value="医疗管理"<?php $user['profession']=='医疗管理'?'checked':''?>>医疗管理</option>
+						                      <option value="医生"<?php $user['profession']=='医生'?'checked':''?>>医生</option>
+						                      <option value="心理医生"<?php $user['profession']=='心理医生'?'checked':''?>>心理医生</option>
+						                      <option value="药剂师"<?php $user['profession']=='药剂师'?'checked':''?>>药剂师</option>
+						                      <option value="护士"<?php $user['profession']=='护士'?'checked':''?>>护士</option>
+						                      <option value="兽医"<?php $user['profession']=='兽医'?'checked':''?>>兽医</option>
+						                	<option value="医疗/护理"<?php $user['profession']=='医疗/护理'?'checked':''?>>医疗/护理</option>
+						                    </optgroup>
+						                    <optgroup label="金融/银行/保险">
+						                      <option value="投资"<?php $user['profession']=='投资'?'checked':''?>>投资</option>
+						                      <option value="保险"<?php $user['profession']=='保险'?'checked':''?>>保险</option>
+						                      <option value="金融"<?php $user['profession']=='金融'?'checked':''?>>金融</option>
+						                      <option value="银行"<?php $user['profession']=='银行'?'checked':''?>>银行</option>
+						                      <option value="证券"<?php $user['profession']=='证券'?'checked':''?>>证券</option>
+						                      <option value="金融/保险/银行"<?php $user['profession']=='金融/保险/银行'?'checked':''?>>金融/保险/银行</option>
+						                    </optgroup>
+						                    <optgroup label="建筑/房地产">
+						                      <option value="建筑师"<?php $user['profession']=='建筑师'?'checked':''?>>建筑师</option>
+						                      <option value="工程师"<?php $user['profession']=='工程师'?'checked':''?>>工程师</option>
+						                      <option value="规划师"<?php $user['profession']=='规划师'?'checked':''?>>规划师</option>
+						                      <option value="景观设计"<?php $user['profession']=='景观设计'?'checked':''?>>景观设计</option>
+						                      <option value="房地产策划"<?php $user['profession']=='房地产策划'?'checked':''?>>房地产策划</option>
+						                      <option value="房地产交易"<?php $user['profession']=='房地产交易'?'checked':''?>>房地产交易</option>
+						    				<option value="物业管理"<?php $user['profession']=='物业管理'?'checked':''?>>物业管理</option>
+						                      <option value="建筑/房地产"<?php $user['profession']=='建筑/房地产'?'checked':''?>>建筑/房地产</option>
+						                    </optgroup>
+						                    <optgroup label="咨询/顾问">
+						                      <option value="专业顾问"<?php $user['profession']=='专业顾问'?'checked':''?>>专业顾问</option>
+						                      <option value="咨询经理"<?php $user['profession']=='咨询经理'?'checked':''?>>咨询经理</option>
+						                      <option value="咨询师"<?php $user['profession']=='咨询师'?'checked':''?>>咨询师</option>
+						                      <option value="培训师"<?php $user['profession']=='培训师'?'checked':''?>>培训师</option>
+						                      <option value="咨询/顾问"<?php $user['profession']=='咨询/顾问'?'checked':''?>>咨询/顾问</option>
+						                    </optgroup>
+						                    <optgroup label="财务/审计">
+						                      <option value="财务总监"<?php $user['profession']=='财务总监'?'checked':''?>>财务总监</option>
+						                      <option value="财务经理"<?php $user['profession']=='财务经理'?'checked':''?>>财务经理</option>
+						                      <option value="财务主管"<?php $user['profession']=='财务主管'?'checked':''?>>财务主管</option>
+						                      <option value="会计"<?php $user['profession']=='会计'?'checked':''?>>会计</option>
+						                      <option value="注册会计"<?php $user['profession']=='注册会计'?'checked':''?>>注册会计</option>
+												<option value="审计师"<?php $user['profession']=='审计师<'?'checked':''?>>审计师</option>
+												<option value="税务经理"<?php $user['profession']=='税务经理'?'checked':''?>>税务经理</option>
+												<option value="税务专员"<?php $user['profession']=='税务专员'?'checked':''?>>税务专员</option>
+												<option value="成本经理"<?php $user['profession']=='成本经理'?'checked':''?>>成本经理</option>
+												<option value="财务/审计"<?php $user['profession']=='财务/审计'?'checked':''?>>财务/审计</option>
+						                    </optgroup>
+						                    <optgroup label="教育/科研">
+						                      <option value="教授"<?php $user['profession']=='教授<'?'checked':''?>>教授</option>
+						                      <option value="讲师/助教"<?php $user['profession']=='讲师/助教'?'checked':''?>>讲师/助教</option>
+						                      <option value="中学教师"<?php $user['profession']=='中学教师'?'checked':''?>>中学教师</option>
+						                      <option value="小学教师"<?php $user['profession']=='小学教师'?'checked':''?>>小学教师</option>
+						                      <option value="助教"<?php $user['profession']=='助教'?'checked':''?>>助教</option>
+												<option value="教务管理人员"<?php $user['profession']=='教务管理人员'?'checked':''?>>教务管理人员</option>
+												<option value="职业技术教师"<?php $user['profession']=='职业技术教师'?'checked':''?>>职业技术教师</option>
+												 <option value="培训师"<?php $user['profession']=='培训师'?'checked':''?>>培训师</option>
+												<option value="科研管理人员"<?php $user['profession']=='科研管理人员'?'checked':''?>>科研管理人员</option>
+												<option value="科研人员"<?php $user['profession']=='科研人员'?'checked':''?>>科研人员</option>
+												<option value="教育/科研"<?php $user['profession']=='教育/科研'?'checked':''?>>教育/科研</option>
+						                    </optgroup>
+						                    <optgroup label="服务业">
+						                      <option value="餐饮管理"<?php $user['profession']=='餐饮管理'?'checked':''?>>餐饮管理</option>
+						                      <option value="厨师"<?php $user['profession']=='厨师'?'checked':''?>>厨师</option>
+						                      <option value="餐厅服务员"<?php $user['profession']=='餐厅服务员'?'checked':''?>>餐厅服务员</option>
+						                      <option value="酒店管理"<?php $user['profession']=='酒店管理'?'checked':''?>>酒店管理</option>
+						                      <option value="大堂经理"<?php $user['profession']=='大堂经理'?'checked':''?>>大堂经理</option>
+												<option value="酒店服务员"<?php $user['profession']=='酒店服务员'?'checked':''?>>酒店服务员</option>
+												<option value="导游"<?php $user['profession']=='导游'?'checked':''?>>导游</option>                     
+												<option value="美容师"<?php $user['profession']=='美容师'?'checked':''?>>美容师</option>
+												<option value="健身教练"<?php $user['profession']=='健身教练'?'checked':''?>>健身教练</option>
+												<option value="商场经理"<?php $user['profession']=='商场经理'?'checked':''?>>商场经理</option>
+												<option value="零售店店长"<?php $user['profession']=='零售店店长'?'checked':''?>>零售店店长</option>
+												<option value="店员"<?php $user['profession']=='店员'?'checked':''?>>店员</option>                    
+												<option value="保安经理"<?php $user['profession']=='保安经理'?'checked':''?>>保安经理</option>
+												<option value="保安人员"<?php $user['profession']=='保安人员'?'checked':''?>>保安人员</option>
+												<option value="家政服务"<?php $user['profession']=='家政服务'?'checked':''?>>家政服务</option>
+												<option value="服务业"<?php $user['profession']=='服务业'?'checked':''?>>服务业</option>
+						                    </optgroup>
+						                    <optgroup label="交通运输">
+						                      <option value="飞行员"<?php $user['profession']=='飞行员'?'checked':''?>>飞行员</option>
+						                      <option value="空乘人员"<?php $user['profession']=='空乘人员'?'checked':''?>>空乘人员</option>
+						                      <option value="地勤人员"<?php $user['profession']=='地勤人员'?'checked':''?>>地勤人员</option>
+						                      <option value="列车司机"<?php $user['profession']=='列车司机'?'checked':''?>>列车司机</option>
+						                      <option value="乘务员"<?php $user['profession']=='乘务员'?'checked':''?>>乘务员</option>
+												<option value="船长"<?php $user['profession']=='船长'?'checked':''?>>船长</option>
+												<option value="船员"<?php $user['profession']=='船员'?'checked':''?>>船员</option>
+												<option value="司机"<?php $user['profession']=='司机'?'checked':''?>>司机</option>
+												<option value="交通运输"<?php $user['profession']=='交通运输'?'checked':''?>>交通运输</option>
+						                    </optgroup>
+						                    <optgroup label="政府机构">
+						                      <option value="公务员"<?php $user['profession']=='公务员'?'checked':''?>>公务员</option>
+						                      <option value="政府机构"<?php $user['profession']=='政府机构'?'checked':''?>>政府机构</option>
+						                    </optgroup>
+						                    <optgroup label="军人/警察">
+						                      <option value="军官"<?php $user['profession']=='军官'?'checked':''?>>军官</option>
+						                      <option value="士兵"<?php $user['profession']=='士兵'?'checked':''?>>士兵</option>
+												<option value="警官"<?php $user['profession']=='警官'?'checked':''?>>警官</option>
+						                      <option value="警员"<?php $user['profession']=='警员'?'checked':''?>>警员</option>
+						                    </optgroup>
+						                    <optgroup label="农林牧渔">
+						                      <option value="农林牧渔"<?php $user['profession']=='农林牧渔'?'checked':''?>>农林牧渔</option>    
+						                    </optgroup>
+											<optgroup label="自由职业">
+						                      <option value="自由职业"<?php $user['profession']=='自由职业<'?'checked':''?>>自由职业</option>     
+						                    </optgroup>
+											<optgroup label="在校学生">
+						                      <option value="在校学生"<?php $user['profession']=='在校学生'?'checked':''?>>在校学生</option>      
+						                    </optgroup>
+												<optgroup label="待业">
+						                      <option value="待业"<?php $user['profession']=='待业'?'checked':''?>>待业</option>     
+						                    </optgroup>
+												<optgroup label="其他职业">
+						                      <option value="其他职业"<?php $user['profession']=='其他职业'?'checked':''?>>其他职业</option>    
+						                    </optgroup>
+														</select>
+									</div>						
+								</div>
+								
+																
+								<div class="per-selectbox clearfix">
+									<span>籍贯：</span>
+									<div class="fl">
+										<select class="mobiselect" name="jiguan">
+											<option value="" >请选择</option>
+											<option value="1" <if condition="$user['jiguan'] eq 1">selected</if>>北京</option>
+											<option value="2" <if condition="$user['jiguan'] eq 2">selected</if>>上海</option>
+											<option value="3" <if condition="$user['jiguan'] eq 3">selected</if>>天津</option>
+											<option value="4" <if condition="$user['jiguan'] eq 4">selected</if>>重庆</option>
+											<option value="5" <if condition="$user['jiguan'] eq 5">selected</if>>香港</option>
+											<option value="6" <if condition="$user['jiguan'] eq 6">selected</if>>澳门</option>
+											<option value="7" <if condition="$user['jiguan'] eq 7">selected</if>>黑龙江</option>
+											<option value="8" <if condition="$user['jiguan'] eq 8">selected</if>>吉林</option>
+											<option value="9" <if condition="$user['jiguan'] eq 9">selected</if>>辽宁</option>
+											<option value="10" <if condition="$user['jiguan'] eq 10">selected</if>>内蒙古</option>
+											<option value="11" <if condition="$user['jiguan'] eq 11">selected</if>>河北</option>
+											<option value="12" <if condition="$user['jiguan'] eq 12">selected</if>>河南</option>
+											<option value="13" <if condition="$user['jiguan'] eq 13">selected</if>>山东</option>
+											<option value="14" <if condition="$user['jiguan'] eq 14">selected</if>>山西</option>
+											<option value="15" <if condition="$user['jiguan'] eq 15">selected</if>>江苏</option>
+											<option value=16 <if condition="$user['jiguan'] eq 16">selected</if>>安徽</option>
+											<option value="17" <if condition="$user['jiguan'] eq 17">selected</if>>陕西</option>
+											<option value="18" <if condition="$user['jiguan'] eq 18">selected</if>>宁夏</option>
+											<option value="19" <if condition="$user['jiguan'] eq 19">selected</if>>甘肃</option>
+											<option value="20" <if condition="$user['jiguan'] eq 20">selected</if>>青海</option>
+											<option value="21" <if condition="$user['jiguan'] eq 21">selected</if>>湖北</option>
+											<option value="22" <if condition="$user['jiguan'] eq 22">selected</if>>湖南</option>
+											<option value="23" <if condition="$user['jiguan'] eq 23">selected</if>>浙江</option>
+											<option value="24" <if condition="$user['jiguan'] eq 24">selected</if>>江西</option>
+											<option value="25" <if condition="$user['jiguan'] eq 25">selected</if>>福建</option>
+											<option value="26" <if condition="$user['jiguan'] eq 26">selected</if>>贵州</option>
+											<option value="27" <if condition="$user['jiguan'] eq 27">selected</if>>四川</option>
+											<option value="28" <if condition="$user['jiguan'] eq 28">selected</if>>广东</option>
+											<option value="29" <if condition="$user['jiguan'] eq 29">selected</if>>广西</option>
+											<option value="30" <if condition="$user['jiguan'] eq 30">selected</if>>云南</option>
+											<option value="31" <if condition="$user['jiguan'] eq 31">selected</if>>海南</option>
+											<option value="32" <if condition="$user['jiguan'] eq 32">selected</if>>新疆</option>
+											<option value="33" <if condition="$user['jiguan'] eq 33">selected</if>>西藏</option>
+											<option value="34" <if condition="$user['jiguan'] eq 34">selected</if>>台湾</option>
+											<option value="35" <if condition="$user['jiguan'] eq 35">selected</if>>国外</option>
+										</select>
+									</div>						
+								</div>
+								
+								<div class="per-selectbox clearfix">
+									<span>工作地：</span>
+									<div class="fl">
+										<ul class="per-address-work dn">
+												   									        
+										</ul>
+									</div>						
+								</div>
+								
+								<div class="per-selectbox clearfix">
+									<span>婚姻状况：</span>
+									<div class="fl">
+										<select class="mobiselect" name="marry">
+											<option value="">请选择</option>
+											<option value="1" <if condition="$user.marry eq 1">selected</if>>不限</option>
+											<option value="2" <if condition="$user.marry eq 2">selected</if>>未婚</option>
+											<option value="3" <if condition="$user.marry eq 3">selected</if>>离异</option>
+											<option value="4" <if condition="$user.marry eq 4">selected</if>>丧偶</option>
+										</select>
+									</div>						
+								</div>
+								
+								<div class="per-selectbox clearfix">
+									<span>是否有孩子：</span>
+									<div class="fl">
+										<select class="mobiselect" name="child">
+											<option value="">请选择</option>
+											<option value="1" <if condition="$user.child eq 1">selected</if>>没有小孩</option>
+											<option value="2" <if condition="$user.child eq 2">selected</if>>有孩子且住在一起</option>
+											<option value="3" <if condition="$user.child eq 3">selected</if>>有孩子且偶尔住在一起</option>
+											<option value="4" <if condition="$user.child eq 4">selected</if>>有孩子但不在身边</option>
+										</select>
+									</div>						
+								</div>
+								
+								<div class="per-selectbox clearfix">
+									<span>是否要孩子：</span>
+									<div class="fl">
+										<select class="mobiselect" name="wchild">
+											<option value="">请选择</option>
+											<option value="1" <if condition="$user.wchild eq 1">selected</if>>视情况而定</option>
+											<option value="2" <if condition="$user.wchild eq 2">selected</if>>想要孩子</option>
+											<option value="3" <if condition="$user.wchild eq 3">selected</if>>不想要孩子</option>
+											<option value="4" <if condition="$user.wchild eq 4">selected</if>>以后再告诉你</option>
+										</select>
+									</div>						
+								</div>
+								
+								<div class="per-selectbox clearfix">
+									<span>住房情况：</span>
+									<div class="fl">
+										<select class="mobiselect" name="whouse">
+											<option value="">请选择</option>
+											<option value="1" <if condition="$user.whouse eq 1">selected</if>>和家人同住</option>
+											<option value="2" <if condition="$user.whouse eq 2">selected</if>>已购房</option>
+											<option value="3" <if condition="$user.whouse eq 3">selected</if>>租房</option>
+											<option value="4" <if condition="$user.whouse eq 4">selected</if>>打算婚后购房</option>
+											<option value="5" <if condition="$user.whouse eq 5">selected</if>>住在单位宿舍</option>
+										</select>
+									</div>						
+								</div>
+								
+								<div class="per-selectbox clearfix">
+									<span>买车情况：</span>
+									<div class="fl">
+										<select class="mobiselect" name="wcar">
+											<option value="">请选择</option>
+											<option value="1" <if condition="$user.wcar eq 1">selected</if>>已买车</option>
+											<option value="2" <if condition="$user.wcar eq 2">selected</if>>未买车</option>
+										</select>
+									</div>						
+								</div>
+								
+								
+								
+								<div class="per-selectbox clearfix">
+									<span>是否抽烟：</span>
+									<div class="fl">
+										<select  class="mobiselect" name="yan">
+											<option value="">请选择</option>
+											<option value="1" <if condition="$user.yan eq 1">selected</if>>不吸烟</option>
+											<option value="2" <if condition="$user.yan eq 2">selected</if>>稍微抽一点烟</option>
+											<option value="3" <if condition="$user.yan eq 3">selected</if>>烟抽的很多</option>
+											<option value="4" <if condition="$user.yan eq 4">selected</if>>社交场合会抽烟</option>
+										</select>
+									</div>						
+								</div>
+								
+								<div class="per-selectbox clearfix">
+									<span>是否喝酒：</span>
+									<div class="fl">
+										<select  class="mobiselect" name="jiu">
+											<option value="">请选择</option>
+											<option value="1" <if condition="$user.jiu eq 1">selected</if>>不喝酒</option>
+											<option value="2" <if condition="$user.jiu eq 2">selected</if>>稍微喝一点酒</option>
+											<option value="3" <if condition="$user.jiu eq 3">selected</if>>酒喝的很多</option>
+											<option value="4" <if condition="$user.jiu eq 4">selected</if>>社交场合会喝酒</option>
+										</select>
+									</div>						
+								</div>
+														
+																
+								<div class="per-selectbox clearfix">
+									<span>星座：</span>
+									<div class="fl">
+										<select class="mobiselect" name="xingz">
+											<option value="">请选择星座</option>
+											<option value="1" <if condition="$user.xingz eq 1">selected</if>>牡羊座 (03.21-04.20)</option>
+											<option value="2" <if condition="$user.xingz eq 2">selected</if>>金牛座 (04.21-05.20)</option>
+											<option value="3" <if condition="$user.xingz eq 3">selected</if>>双子座 (05.21-06.21)</option>
+											<option value="4" <if condition="$user.xingz eq 4">selected</if>>巨蟹座 (06.22-07.22)</option>
+											<option value="5" <if condition="$user.xingz eq 5">selected</if>>狮子座 (07.23-08.22)</option>
+											<option value="6" <if condition="$user.xingz eq 6">selected</if>>处女座 (08.23-09.22)</option>
+											<option value="7" <if condition="$user.xingz eq 7">selected</if>>天秤座 (09.23-10.22)</option>
+											<option value="8" <if condition="$user.xingz eq 8">selected</if>>天蝎座 (10.23-11.21)</option>
+											<option value="9" <if condition="$user.xingz eq 9">selected</if>>射手座 (11.22-12.21)</option>
+											<option value="10" <if condition="$user.xingz eq 10">selected</if>>摩羯座 (12.22-01.19)</option>
+											<option value="11" <if condition="$user.xingz eq 11">selected</if>>水甁座 (1.20-2.19)</option>
+											<option value="12" <if condition="$user.xingz eq 12">selected</if>>双鱼座 (2.20-03.20)</option>
+										</select>
+									</div>						
+								</div>								
+																
+								<div class="per-selectbox clearfix">
+									<span>何时结婚：</span>
+									<div class="fl">
+										<select class="mobiselect" name="wmarry">
+											<option value="">请选择</option>
+											<option value="1" <if condition="$user.wmarry eq 1">selected</if>>认同闪婚</option>
+											<option value="2" <if condition="$user.wmarry eq 2">selected</if>>一年内</option>
+											<option value="3" <if condition="$user.wmarry eq 3">selected</if>>两年内</option>
+											<option value="4" <if condition="$user.wmarry eq 4">selected</if>>三年内</option>
+											<option value="5" <if condition="$user.wmarry eq 5">selected</if>>时机成熟就结婚</option>
+										</select>
+									</div>						
+								</div>
+								
+								<div class="per-selectbox clearfix">
+									<span>有无照片：</span>
+									<div class="fl">
+										<select class="mobiselect" name="l_photo">
+											<option value="">请选择</option>
+											<option value="1" <if condition="$user.l_photo eq 1">selected</if>>不限</option>
+											<option value="2" <if condition="$user.l_photo eq 2">selected</if>>有</option>
+										</select>
+									</div>						
+								</div>
+								
+								
+								
+								<div class="per-btnbox">
+									<input type="button" value="保存" />
+								</div>
+															
+							</div>
+						</div>
+						
+						
+						
+					</form>
+				</div>
+				
+				<div class="aside-r fl">
+					<div class="idcard clearfix">
+						<div class="headpic-box fl">
+							<img src="images/headPic.png"/>
+						</div>
+						<div class="headpic-r fr">
+							<div class="myname"><a href="#">你见过我的小熊吗</a></div>
+							<div class="myidnum">ID：<span>12345678</span></div>
+							<p>
+								<span class="icon-sex-girl"></span>
+								<span class="icon-vip"></span>
+							</p>
+							<div class="wszl">
+								<a href="#">完善资料</a>
+							</div>
+						</div>
+					</div>
+					
+					<div class="per-nav">
+						<ul>
+							<li><a href="#">基本资料 <span>&gt;</span></a></li>
+							<li class="active"><a href="#">择偶标准 <span>&gt;</span></a></li>
+							<li><a href="#">我的相册 <span>&gt;</span></a></li>
+							<li><a href="#">我的认证 <span>&gt;</span></a></li>
+							<li><a href="#">升级VIP <span>&nbsp;&gt;</span></a></li>
+							<li><a href="javascript:void(0)" onClick="showBox('change-phone')">修改手机 <span>&gt;</span></a></li>
+							<li><a href="javascript:void(0)" onClick="showBox('changepwd_box')">修改密码 <span>&gt;</span></a></li>
+							<li><a href="#">退出登录 <span>&gt;</span></a></li>							
+						</ul>
+					</div>
+				
+					
+					<!--小广告条-->
+					<div class="small-ad">
+						<img src="images/small-ad.png"/>
+					</div>
+					
+			
+					
+					
+					
+				</div>
+			</div>
+			<!--container box 1200 end--> 
+		
+			<!--固定定位的修改密码什么的-->
+			<div class="changepwd_box dn" id="changepwd_box" >
+				<div class="change-pwd">
+					<div class="title">
+						<span class="t_txt">修改密码</span>
+						<span class="del" onClick="closeBox('changepwd_box')">×</span>
+					</div>
+					<form class="clearfix" action="" method="">
+						<input type="text" name="" id="" value="13333333333" placeholder="请输入手机号" disabled="disabled"/>
+						<input type="password" name="" id="" value="" placeholder="请输入新密码"/>
+						<div class="getcodebox clearfix">
+							<input type="text" placeholder="请输入验证码"/>
+							<div class="codebox">
+								获取验证码
+							</div>
+						</div>
+						<input class="change-btn" type="button" name="" id="" value="确认修改"/>				
+					</form>					
+				</div>
+			</div>
+			
+			<div class="changepwd_box dn" id="change-phone" >
+				<div class="change-pwd">
+					<div class="title">
+						<span class="t_txt">修改手机</span>
+						<span class="del" onClick="closeBox('changepwd_box','change-phone')">×</span>
+					</div>
+					<form class="clearfix" action="" method="">
+						<input type="text" name="" id="" value="" placeholder="请输入新手机号"/>
+	
+						<div class="getcodebox clearfix">
+							<input type="text" placeholder="请输入验证码"/>
+							<div class="codebox">
+								获取验证码
+							</div>
+						</div>
+						<input class="change-btn" type="button" name="" id="" value="确认修改"/>				
+					</form>					
+				</div>
+			</div>
+		
+			<div class="bg_color dn" onClick="closeBox('changepwd_box','change-phone')" id="bg_filter"></div>
+		
+
+		
+		<!--底部-->
+			<!-- 城市列表start -->
+			<div class="hot-city">
+				<div class="city-wrap frameW">
+			        <div class="city-list clearfix">
+						城市：
+				           <a target="_blank" href="#">郑州</a>
+				           <a target="_blank" href="#">开封</a>
+				           <a target="_blank" href="#">洛阳</a>
+				           <a target="_blank" href="#">南阳</a>
+				           <a target="_blank" href="#">漯河</a>
+				           <a target="_blank" href="#">许昌</a>
+				           <a target="_blank" href="#">三门峡</a>
+				           <a target="_blank" href="#">平顶山</a>
+				           <a target="_blank" href="#">周口</a>
+				           <a target="_blank" href="#">驻马店</a>
+				           <a target="_blank" href="#">新乡</a>
+				           <a target="_blank" href="#">鹤壁</a>
+				           <a target="_blank" href="#">焦作</a>
+				           <a target="_blank" href="#">濮阳</a>
+				           <a target="_blank" href="#">安阳</a>
+				           <a target="_blank" href="#">商丘</a>
+				           <a target="_blank" href="#">信阳</a>
+				           <a target="_blank" href="#">济源</a>
+				           <a target="_blank" href="#">省外</a>				 
+					</div>
+				</div>
+			</div>
+			<!-- 城市列表end -->
+			<!-- 尾部 start -->
+			<footer class="footer">
+			    <div class="frameW clearfix">
+			        
+		            <div class="quick">
+		            	<a target="_blank" href="#" rel="nofollow">关于我们</a>|<a target="_blank" href="#" rel="nofollow">联系我们</a>|<a target="_blank" href="#" rel="nofollow">意见反馈</a>|<a href="#" target="_blank" rel="nofollow">免责声明</a>
+		            </div>
+		            <p>相豫网——只做值得您信赖的相亲服务！</p>
+		            <p><span>客服热线：0371-55586806</span> <span>客服信箱：kefu@vipxiangyu.com</span></p>
+
+			        <div class="copyright">
+			        	<p>Copyright &#169; 2017 版权所有：河南相豫网网络科技有限公司 豫ICP备17027620</p>        	
+			        </div>
+			    </div>
+			</footer>
+	</body>
+</html>
